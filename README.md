@@ -1,7 +1,7 @@
 
   # Resume Template Collection
 
-  This is a code bundle for Resume Template Collection. The original project is available at https://www.figma.com/design/9nR8YFvisDigRI2NdABN2e/Resume-Template-Collection.
+  This is a code bundle for Resume Template Collection.
 
   ## Running the code
 
