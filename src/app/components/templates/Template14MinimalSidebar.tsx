@@ -9,20 +9,26 @@ export function Template14MinimalSidebar({ data, theme }: TemplateProps) {
   return (
     <div className="flex h-full bg-white">
       {/* Slim Left Sidebar */}
-      <div className="w-16 bg-gray-900 flex flex-col items-center py-8 gap-6">
+      <div className="w-56 bg-gray-900 flex flex-col items-start py-8 px-4 gap-6">
         {/* Profile Icon */}
-        <div className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold">
+        <div className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold self-center">
           {data.name[0]}
         </div>
         
         {/* Social Icons */}
-        <div className="flex flex-col gap-4">
-          <SocialLink icon={Mail} url={data.email} theme={theme} variant="icon-only" />
-          <SocialLink icon={Phone} url={data.phone} theme={theme} variant="icon-only" />
-          <SocialLink icon={MapPin} url={data.location} theme={theme} variant="icon-only" />
-          {data.website && <SocialLink icon={Globe} url={data.website} theme={theme} variant="icon-only" />}
-          {data.linkedin && <SocialLink icon={Linkedin} url={data.linkedin} theme={theme} variant="icon-only" />}
-          {data.github && <SocialLink icon={Github} url={data.github} theme={theme} variant="icon-only" />}
+        <div className="flex flex-col gap-4 w-full">
+          <SocialLink icon={Mail} url={data.email} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+          <SocialLink icon={Phone} url={data.phone} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+          <SocialLink icon={MapPin} url={data.location} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+          {data.website && (
+            <SocialLink icon={Globe} url={data.website} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+          )}
+          {data.linkedin && (
+            <SocialLink icon={Linkedin} url={data.linkedin} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+          )}
+          {data.github && (
+            <SocialLink icon={Github} url={data.github} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+          )}
         </div>
       </div>
 
