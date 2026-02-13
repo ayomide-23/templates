@@ -30,18 +30,18 @@ export function Template02ModernTwoColumn({ data, theme }: TemplateProps) {
   };
 
   return (
-    <div className="flex h-full bg-white">
+    <div className="flex flex-col lg:flex-row h-full bg-white">
       {/* Left Sidebar */}
       <div 
-        className="w-1/3 p-8 flex flex-col"
+        className="w-full lg:w-1/3 p-6 lg:p-8 flex flex-col lg:border-r border-gray-200"
         style={{ backgroundColor: getSidebarBg() }}
       >
         {/* Profile */}
         <div className="mb-6">
-          <div className="w-24 h-24 rounded-full bg-gray-300 mx-auto mb-4">
+          <div className="w-20 lg:w-24 h-20 lg:h-24 rounded-full bg-gray-300 mx-auto mb-4">
             <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400&h=400&fit=crop" alt={`${data.name} Profile`} className="w-full h-full object-cover rounded-full" />
           </div>
-          <h1 className="text-2xl font-bold text-center mb-1" style={{ color: getNameColor() }}>
+          <h1 className="text-xl lg:text-2xl font-bold text-center mb-1" style={{ color: getNameColor() }}>
             {data.name}
           </h1>
           <p className="text-center text-sm text-gray-700">{data.title}</p>
@@ -80,7 +80,7 @@ export function Template02ModernTwoColumn({ data, theme }: TemplateProps) {
       </div>
 
       {/* Right Main Content */}
-      <div className="w-2/3 p-8 overflow-auto">
+      <div className="w-full lg:w-2/3 p-6 lg:p-8 overflow-auto">
         {/* Summary */}
         <section className="mb-6">
           <SectionTitle title="About Me" theme={theme} variant="accent-bar" />
