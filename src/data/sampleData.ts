@@ -1,6 +1,24 @@
+/**
+ * Sample Resume Data Module
+ * 
+ * This file contains sample resume data for all 20 templates.
+ * Each template has a unique sample resume tailored to the template's
+ * design and target industry/profession.
+ * 
+ * The getSampleDataByTemplate() function dynamically retrieves the correct
+ * sample data based on template ID.
+ */
+
 import { ResumeData } from '@/types/resume';
 
-// Template 1: Classic Clean - Software Engineer
+/**
+ * TEMPLATE 1: Classic Clean
+ * 
+ * Industry: Software Engineering
+ * Style: Traditional, clean, ATS-friendly
+ * Target: Professional engineers in tech
+ * Sample: Marcus Chen - Senior Software Engineer
+ */
 export const template1Data: ResumeData = {
   name: 'Marcus Chen',
   title: 'Senior Software Engineer',

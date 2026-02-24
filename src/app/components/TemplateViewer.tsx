@@ -137,13 +137,13 @@ export function TemplateViewer({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <button
+              {/* <button
                 onClick={onBack}
                 className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <ArrowLeft className="w-5 h-5" />
                 <span>Back to Gallery</span>
-              </button>
+              </button> */}
               <div className="h-6 w-px bg-gray-300"></div>
               <div>
                 <h2 className="font-semibold text-gray-900">
@@ -155,7 +155,7 @@ export function TemplateViewer({
 
             <div className="flex items-center gap-4">
               {/* Theme Selector */}
-              <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
+              {/* <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
                 <Palette className="w-4 h-4 text-gray-500 ml-2" />
                 {(['neutral', 'accent', 'dark'] as ThemeVariant[]).map((t) => (
                   <button
@@ -170,10 +170,10 @@ export function TemplateViewer({
                     {t.charAt(0).toUpperCase() + t.slice(1)}
                   </button>
                 ))}
-              </div>
+              </div> */}
 
               {/* Export dropdown */}
-              <div className="relative group">
+              {/* <div className="relative group">
                 <button
                   className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-400 disabled:cursor-not-allowed"
                   disabled={isExporting}
@@ -200,7 +200,7 @@ export function TemplateViewer({
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -210,7 +210,6 @@ export function TemplateViewer({
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
           <div className="bg-gray-100 p-8">
-            {/* THIS IS THE RESUME CONTAINER */}
             <div
               ref={resumeRef}
               className="mx-auto bg-white shadow-lg"
