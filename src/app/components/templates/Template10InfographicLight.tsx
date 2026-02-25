@@ -26,9 +26,9 @@ export function Template10InfographicLight({ data, theme }: TemplateProps) {
     <div className="p-10 h-full overflow-auto text-gray-900 bg-white">
       {/* Header with Visual Elements */}
       <div className="mb-8 pb-6 border-b-2" style={{ borderColor: getAccentColor() }}>
-        <div className="flex justify-between items-start">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
           <div>
-            <h1 className="text-4xl font-bold mb-2" style={{ color: getAccentColor() }}>
+            <h1 className="text-2xl font-bold mb-2 md:text-4xl" style={{ color: getAccentColor() }}>
               {data.name}
             </h1>
             <p className="text-xl text-gray-700">{data.title}</p>
@@ -36,10 +36,10 @@ export function Template10InfographicLight({ data, theme }: TemplateProps) {
           
           {/* Key Metrics */}
           {data.metrics && (
-            <div className="grid grid-cols-2 gap-3 text-center">
+            <div className="grid grid-cols-2 gap-2 md:gap-3 text-center">
               {data.metrics.slice(0, 4).map((metric, idx) => (
                 <div key={idx} className="p-2 bg-gray-50 rounded">
-                  <div className="text-2xl font-bold" style={{ color: getAccentColor() }}>
+                  <div className="text-lg md:text-2xl font-bold" style={{ color: getAccentColor() }}>
                     {metric.value}
                   </div>
                   <div className="text-xs text-gray-600">{metric.label}</div>
@@ -49,7 +49,7 @@ export function Template10InfographicLight({ data, theme }: TemplateProps) {
           )}
         </div>
         
-        <div className="flex gap-6 text-sm text-gray-600 mt-4">
+        <div className="flex flex-wrap gap-6 text-sm text-gray-600 mt-4">
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4" />
             <span>{data.email}</span>
@@ -80,7 +80,7 @@ export function Template10InfographicLight({ data, theme }: TemplateProps) {
       {/* Skills with Visual Bars */}
       <section className="mb-6 p-4 bg-gray-50 rounded-lg">
         <SectionTitle title="Skills" theme={theme} variant="minimal" />
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {skillsWithLevels.map((skill, idx) => (
             <div key={idx}>
               <div className="flex justify-between text-sm mb-1">
@@ -110,7 +110,7 @@ export function Template10InfographicLight({ data, theme }: TemplateProps) {
       </section>
 
       {/* Education & Certifications Grid */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <section>
           <SectionTitle title="Education" theme={theme} variant="accent-bar" />
           {data.education.map((edu, idx) => (

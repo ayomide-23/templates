@@ -25,15 +25,12 @@ export function Template16StartupProduct({ data, theme }: TemplateProps) {
           {data.name}
         </h1>
         <p className="text-2xl text-gray-700 mb-4">{data.title}</p>
-        <div className="flex gap-4 text-sm text-gray-600">
+        <div className="flex flex-col md:flex-row gap-2 text-sm text-gray-600">
           <span>{data.email}</span>
-          <span>•</span>
           <span>{data.phone}</span>
-          <span>•</span>
           <span>{data.location}</span>
           {data.linkedin && (
             <>
-              <span>•</span>
               <span>{data.linkedin}</span>
             </>
           )}
@@ -49,7 +46,7 @@ export function Template16StartupProduct({ data, theme }: TemplateProps) {
               Impact Metrics
             </h2>
           </div>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-rows gap-4 md:grid-cols-4">
             {data.metrics.map((metric, idx) => (
               <div key={idx} className="text-center">
                 <div className="text-3xl font-bold" style={{ color: getAccentColor() }}>

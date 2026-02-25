@@ -11,15 +11,12 @@ export function Template07AcademicResearch({ data, theme }: TemplateProps) {
       <div className="text-center mb-8 pb-6 border-b-2 border-gray-300">
         <h1 className="text-3xl font-bold mb-2 text-gray-900">{data.name}</h1>
         <p className="text-lg text-gray-700 mb-3">{data.title}</p>
-        <div className="flex justify-center gap-4 text-sm text-gray-600">
+        <div className="flex flex-col text-sm text-gray-600">
           <span>{data.email}</span>
-          <span>•</span>
           <span>{data.phone}</span>
-          <span>•</span>
           <span>{data.location}</span>
           {data.website && (
             <>
-              <span>•</span>
               <span>{data.website}</span>
             </>
           )}

@@ -36,19 +36,19 @@ export function Template20PersonalBrand({ data, theme }: TemplateProps) {
           </p>
 
           {/* Social Links */}
-          <div className="flex gap-4">
-            <div className="flex items-center gap-2 bg-white text-black bg-opacity-20 px-4 py-2 rounded-full">
+          <div className="flex gap-4 flex-wrap">
+            <div className="flex items-center gap-2 bg-white text-black bg-opacity-20 px-2 py-1 md:px-4 md:py-2 rounded-full">
               <Mail className="w-4 h-4" />
-              <span className="text-sm">{data.email}</span>
+              <span className="text-xs md:text-sm">{data.email}</span>
             </div>
-            <div className="flex items-center gap-2 bg-white text-black bg-opacity-20 px-4 py-2 rounded-full">
+            <div className="flex items-center gap-2 bg-white text-black bg-opacity-20 px-2 py-1 md:px-4 md:py-2 rounded-full">
               <Phone className="w-4 h-4" />
-              <span className="text-sm">{data.phone}</span>
+              <span className="text-xs md:text-sm">{data.phone}</span>
             </div>
             {data.website && (
-              <div className="flex items-center gap-2 bg-white text-black bg-opacity-20 px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 bg-white text-black bg-opacity-20 px-2 py-1 md:px-4 md:py-2 rounded-full">
                 <Globe className="w-4 h-4" />
-                <span className="text-sm">{data.website}</span>
+                <span className="text-xs md:text-sm">{data.website}</span>
               </div>
             )}
           </div>

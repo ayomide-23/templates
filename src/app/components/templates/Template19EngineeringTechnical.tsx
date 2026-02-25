@@ -25,19 +25,16 @@ export function Template19EngineeringTechnical({ data, theme }: TemplateProps) {
           {data.name}
         </h1>
         <p className="text-xl text-gray-700 mb-3">{data.title}</p>
-        <div className="flex gap-4 text-sm text-gray-600">
+        <div className="flex flex-col md:flex-row gap-2 text-sm text-gray-600">
           <span>{data.email}</span>
-          <span>•</span>
           <span>{data.phone}</span>
           {data.github && (
             <>
-              <span>•</span>
               <span>github.com/{data.github.split('/').pop()}</span>
             </>
           )}
           {data.linkedin && (
             <>
-              <span>•</span>
               <span>LinkedIn</span>
             </>
           )}

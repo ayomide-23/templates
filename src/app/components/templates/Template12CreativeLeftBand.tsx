@@ -22,17 +22,12 @@ export function Template12CreativeLeftBand({ data, theme }: TemplateProps) {
   const initials = data.name.split(' ').map(n => n[0]).join('').slice(0, 2);
 
   return (
-    <div className="flex h-full bg-white">
+    <div className="flex h-full bg-white overflow-auto">
       {/* Left Color Band */}
       <div 
         className="w-20 flex flex-col items-center py-12"
         style={{ backgroundColor: bandColor }}
       >
-        {/* Initials Circle */}
-        {/* <div className="w-16 h-16 rounded-full bg-white bg-opacity-20 flex items-center justify-center mb-6">
-          <span className="text-2xl font-bold text-white">{initials}</span>
-        </div> */}
-        
         {/* Vertical Name */}
         <div className="flex-1 flex items-center justify-center">
           <div 
@@ -45,9 +40,9 @@ export function Template12CreativeLeftBand({ data, theme }: TemplateProps) {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex">
+      <div className="flex">
         {/* Left Sidebar */}
-        <div className="w-1/3 p-8 bg-gray-50">
+        <div className="w-1/3 overflow-auto p-8 bg-gray-50">
           <div className="mb-6">
             <h1 className="text-2xl font-bold text-gray-900 mb-1">{data.name}</h1>
             <p className="text-sm text-gray-700">{data.title}</p>

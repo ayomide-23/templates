@@ -25,11 +25,9 @@ export function Template17SalesBusiness({ data, theme }: TemplateProps) {
           {data.name}
         </h1>
         <p className="text-xl text-gray-700 mb-3">{data.title}</p>
-        <div className="flex gap-4 text-sm text-gray-600">
+        <div className="flex flex-col md:flex-row gap-2 text-sm text-gray-600">
           <span>{data.email}</span>
-          <span>•</span>
           <span>{data.phone}</span>
-          <span>•</span>
           <span>{data.location}</span>
         </div>
       </div>
@@ -41,7 +39,7 @@ export function Template17SalesBusiness({ data, theme }: TemplateProps) {
             <Target className="w-5 h-5" style={{ color: getAccentColor() }} />
             <h2 className="font-bold text-lg text-gray-900">Key Performance Indicators</h2>
           </div>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-rows md:grid-cols-4 gap-3">
             {data.metrics.map((metric, idx) => (
               <div 
                 key={idx}
@@ -96,9 +94,9 @@ export function Template17SalesBusiness({ data, theme }: TemplateProps) {
         {/* Skills */}
         <section>
           <SectionTitle title="Core Skills" theme={theme} variant="accent-bar" />
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 text-sm">
             {data.skills.map((skill, idx) => (
-              <SkillPill key={idx} skill={skill} theme={theme} variant="outlined" />
+              <SkillPill key={idx} skill={skill} theme={theme} variant="outlined"/>
             ))}
           </div>
         </section>

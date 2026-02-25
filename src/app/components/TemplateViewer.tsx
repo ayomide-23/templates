@@ -145,12 +145,12 @@ export function TemplateViewer({
                 <span>Back to Gallery</span>
               </button> */}
               <div className="h-6 w-px bg-gray-300"></div>
-              <div>
+              {/* <div>
                 <h2 className="font-semibold text-gray-900">
                   {String(templateId).padStart(2, '0')} — {template.name}
                 </h2>
                 <p className="text-sm text-gray-600">{template.description}</p>
-              </div>
+              </div> */}
             </div>
 
             <div className="flex items-center gap-4">
@@ -208,7 +208,7 @@ export function TemplateViewer({
 
       {/* Template Preview */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
+        {/* <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
           <div className="bg-gray-100 p-8">
             <div
               ref={resumeRef}
@@ -222,7 +222,8 @@ export function TemplateViewer({
               <TemplateComponent data={resumeData} theme={theme} />
             </div>
           </div>
-        </div>
+        </div> */}
+        <TemplateComponent data={resumeData} theme={theme} />
       </main>
     </div>
   );

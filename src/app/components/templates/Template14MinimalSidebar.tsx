@@ -7,27 +7,27 @@ import { Mail, Phone, MapPin, Globe, Linkedin, Github } from 'lucide-react';
 
 export function Template14MinimalSidebar({ data, theme }: TemplateProps) {
   return (
-    <div className="flex h-full bg-white">
+    <div className="flex flex-col md:flex-row h-full bg-white overflow-auto">
       {/* Slim Left Sidebar */}
-      <div className="w-56 bg-gray-900 flex flex-col items-start py-8 px-4 gap-6">
+      <div className="hidden md:flex w-full md:w-56 bg-gray-900 flex-col py-8 px-4 gap-6">
         {/* Profile Icon */}
         <div className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold self-center">
           {data.name[0]}
         </div>
         
         {/* Social Icons */}
-        <div className="flex flex-col gap-4 w-full">
-          <SocialLink icon={Mail} url={data.email} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
-          <SocialLink icon={Phone} url={data.phone} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
-          <SocialLink icon={MapPin} url={data.location} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+        <div className="flex flex-col gap-4">
+          <SocialLink icon={Mail} url={data.email} theme={theme} containerClassName="text-xs" textClassName="text-gray-100" />
+          <SocialLink icon={Phone} url={data.phone} theme={theme} containerClassName="text-xs" textClassName="text-gray-100" />
+          <SocialLink icon={MapPin} url={data.location} theme={theme} containerClassName="text-xs" textClassName="text-gray-100" />
           {data.website && (
-            <SocialLink icon={Globe} url={data.website} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+            <SocialLink icon={Globe} url={data.website} theme={theme} containerClassName="text-xs" textClassName="text-gray-100" />
           )}
           {data.linkedin && (
-            <SocialLink icon={Linkedin} url={data.linkedin} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+            <SocialLink icon={Linkedin} url={data.linkedin} theme={theme} containerClassName="text-xs" textClassName="text-gray-100" />
           )}
           {data.github && (
-            <SocialLink icon={Github} url={data.github} theme={theme} containerClassName="text-xs" textClassName="text-gray-100 break-all" />
+            <SocialLink icon={Github} url={data.github} theme={theme} containerClassName="text-xs" textClassName="text-gray-100" />
           )}
         </div>
       </div>
@@ -35,13 +35,13 @@ export function Template14MinimalSidebar({ data, theme }: TemplateProps) {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <div className="px-12 py-8 bg-gray-50 border-b border-gray-200">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">{data.name}</h1>
-          <p className="text-xl text-gray-700">{data.title}</p>
+        <div className="px-6 md:px-12 py-6 md:py-8 bg-gray-50 border-b border-gray-200">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">{data.name}</h1>
+          <p className="text-lg md:text-xl text-gray-700">{data.title}</p>
         </div>
 
         {/* Content */}
-        <div className="px-12 py-8 overflow-auto">
+        <div className="px-6 md:px-12 py-8 overflow-auto w-full">
           {/* Summary */}
           <section className="mb-6">
             <SectionTitle title="About" theme={theme} variant="minimal" />
@@ -57,7 +57,8 @@ export function Template14MinimalSidebar({ data, theme }: TemplateProps) {
           </section>
 
           {/* Two Column Bottom */}
-          <div className="grid grid-cols-2 gap-8">
+          {/* Two Column Bottom */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Education */}
             <section>
               <SectionTitle title="Education" theme={theme} variant="minimal" />
