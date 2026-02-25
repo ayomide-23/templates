@@ -132,30 +132,28 @@ export function TemplateViewer({
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      {/* <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              {/* <button
+              <button
                 onClick={onBack}
                 className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <ArrowLeft className="w-5 h-5" />
                 <span>Back to Gallery</span>
-              </button> */}
+              </button>
               <div className="h-6 w-px bg-gray-300"></div>
-              {/* <div>
+              <div>
                 <h2 className="font-semibold text-gray-900">
                   {String(templateId).padStart(2, '0')} — {template.name}
                 </h2>
                 <p className="text-sm text-gray-600">{template.description}</p>
-              </div> */}
+              </div>
             </div>
 
             <div className="flex items-center gap-4">
-              {/* Theme Selector */}
-              {/* <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
+              <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
                 <Palette className="w-4 h-4 text-gray-500 ml-2" />
                 {(['neutral', 'accent', 'dark'] as ThemeVariant[]).map((t) => (
                   <button
@@ -170,10 +168,9 @@ export function TemplateViewer({
                     {t.charAt(0).toUpperCase() + t.slice(1)}
                   </button>
                 ))}
-              </div> */}
+              </div>
 
-              {/* Export dropdown */}
-              {/* <div className="relative group">
+              <div className="relative group">
                 <button
                   className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-400 disabled:cursor-not-allowed"
                   disabled={isExporting}
@@ -200,11 +197,11 @@ export function TemplateViewer({
                     </button>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Template Preview */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
