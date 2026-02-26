@@ -20,7 +20,7 @@ export function Template03CreativeColorBar({ data, theme }: TemplateProps) {
   const accentColor = getAccentColor();
 
   return (
-    <div className="h-full bg-white flex flex-col overflow-hidden">
+    <div className="h-full bg-white flex flex-col overflow-y-auto ">
       {/* Bold Color Bar Header */}
       <div className="flex-shrink-0 h-32" style={{ backgroundColor: accentColor }}>
         <div className="px-6 lg:px-12 pt-12">
@@ -30,7 +30,7 @@ export function Template03CreativeColorBar({ data, theme }: TemplateProps) {
       </div>
 
       {/* Contact Bar */}
-      <div className="flex-shrink-0 px-6 lg:px-12 py-3 lg:py-4 bg-gray-50 border-b border-gray-200 overflow-x-auto">
+      <div className="flex-shrink-0 px-6 lg:px-12 py-3 lg:py-4 bg-gray-50 border-b border-gray-200">
         <div className="flex flex-wrap gap-4 lg:gap-6 text-xs lg:text-sm text-gray-700">
           <div className="flex items-center gap-2 flex-shrink-0">
             <Mail className="w-4 h-4" style={{ color: accentColor }} />
@@ -54,7 +54,7 @@ export function Template03CreativeColorBar({ data, theme }: TemplateProps) {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 px-6 lg:px-12 py-6 lg:py-8 overflow-y-auto">
+      <div className="flex-1 px-6 lg:px-12 py-6 lg:py-8 ">
         {/* Summary */}
         <section className="mb-6">
           <SectionTitle title="Professional Summary" theme={theme} variant="minimal" />

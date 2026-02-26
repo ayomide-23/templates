@@ -205,11 +205,11 @@ export function TemplateViewer({
 
       {/* Template Preview */}
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
+        <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
           <div className="bg-gray-100 p-8">
             <div
               ref={resumeRef}
-              className="mx-auto bg-white shadow-lg"
+              className="mx-auto"
               style={{
                 width: '100%',
                 maxWidth: '794px',
@@ -219,8 +219,7 @@ export function TemplateViewer({
               <TemplateComponent data={resumeData} theme={theme} />
             </div>
           </div>
-        </div> */}
-        <TemplateComponent data={resumeData} theme={theme} />
+        </div>
       </main>
     </div>
   );

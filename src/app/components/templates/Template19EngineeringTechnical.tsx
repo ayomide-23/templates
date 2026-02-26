@@ -18,13 +18,13 @@ export function Template19EngineeringTechnical({ data, theme }: TemplateProps) {
   };
 
   return (
-    <div className="p-10 h-full overflow-auto text-gray-900 bg-white">
+    <div className="p-4 md:p-10 h-full overflow-auto text-gray-900 bg-white">
       {/* Header */}
       <div className="mb-6 pb-4 border-b" style={{ borderColor: getAccentColor() }}>
-        <h1 className="text-4xl font-bold mb-2" style={{ color: getAccentColor() }}>
+        <h1 className="text-2xl md:text-4xl font-bold mb-2" style={{ color: getAccentColor() }}>
           {data.name}
         </h1>
-        <p className="text-xl text-gray-700 mb-3">{data.title}</p>
+        <p className="text-lg md:text-xl text-gray-700 mb-3">{data.title}</p>
         <div className="flex flex-col md:flex-row gap-2 text-sm text-gray-600">
           <span>{data.email}</span>
           <span>{data.phone}</span>
@@ -49,7 +49,7 @@ export function Template19EngineeringTechnical({ data, theme }: TemplateProps) {
             Technology Stack
           </h2>
         </div>
-        <div className="grid grid-cols-4 gap-4 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
           <div>
             <h4 className="font-semibold text-gray-800 mb-2">Languages</h4>
             <div className="space-y-1 text-gray-700">
@@ -100,7 +100,7 @@ export function Template19EngineeringTechnical({ data, theme }: TemplateProps) {
               Featured Projects
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {data.projects.map((project, idx) => (
               <div 
                 key={idx}
@@ -138,7 +138,7 @@ export function Template19EngineeringTechnical({ data, theme }: TemplateProps) {
       </section>
 
       {/* Education & Certifications */}
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <section>
           <SectionTitle title="Education" theme={theme} variant="accent-bar" />
           {data.education.map((edu, idx) => (

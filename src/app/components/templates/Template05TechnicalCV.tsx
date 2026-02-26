@@ -31,7 +31,7 @@ export function Template05TechnicalCV({ data, theme }: TemplateProps) {
       {/* Skills Matrix */}
       <section className="mb-6 p-4 bg-gray-50 rounded border border-gray-200">
         <SectionTitle title="Technical Skills" theme={theme} variant="minimal" />
-        <div className="grid grid-cols-3 gap-4 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div>
             <h4 className="font-semibold text-gray-700 mb-2">Languages</h4>
             <div className="space-y-1">
@@ -63,7 +63,7 @@ export function Template05TechnicalCV({ data, theme }: TemplateProps) {
       {data.projects && data.projects.length > 0 && (
         <section className="mb-6">
           <SectionTitle title="Featured Projects" theme={theme} variant="underline" />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {data.projects.map((project, idx) => (
               <ProjectCard key={idx} project={project} theme={theme} variant="default" />
             ))}

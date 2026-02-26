@@ -58,7 +58,7 @@ export function Template08Timeline({ data, theme }: TemplateProps) {
       </section>
 
       {/* Education & Skills Grid */}
-      <div className="grid grid-cols-2 gap-8 mb-8">
+      <div className="grid grid-cols-1 gap-8 mb-8">
         {/* Education */}
         <section>
           <SectionTitle title="Education" theme={theme} variant="underline" />

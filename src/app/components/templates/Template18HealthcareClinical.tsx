@@ -6,14 +6,14 @@ import { Shield, Award } from 'lucide-react';
 
 export function Template18HealthcareClinical({ data, theme }: TemplateProps) {
   return (
-    <div className="p-12 h-full overflow-auto text-gray-900 bg-white">
+    <div className="p-4 md:p-12 h-full overflow-auto text-gray-900 bg-white">
       {/* Professional Header */}
       <div className="text-center mb-8 pb-6 border-b-2 border-blue-600">
-        <h1 className="text-3xl font-bold mb-2 text-gray-900">{data.name}</h1>
-        <p className="text-xl text-gray-700 mb-3">{data.title}</p>
+        <h1 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">{data.name}</h1>
+        <p className="md:text-xl text-lg text-gray-700 mb-3">{data.title}</p>
         <div className="text-sm text-gray-600">
           {data.email} | {data.phone} | {data.location}
-        </div>
+        </div> 
       </div>
 
       {/* Licenses & Certifications - Prominent */}
@@ -25,7 +25,7 @@ export function Template18HealthcareClinical({ data, theme }: TemplateProps) {
               Licenses & Certifications
             </h2>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {data.certificates.map((cert, idx) => (
               <div key={idx} className="bg-white p-3 rounded border border-blue-100">
                 <div className="font-semibold text-gray-900">{cert.name}</div>
@@ -65,7 +65,7 @@ export function Template18HealthcareClinical({ data, theme }: TemplateProps) {
       {/* Clinical Skills */}
       <section className="mb-6">
         <SectionTitle title="Clinical Skills & Competencies" theme={theme} variant="underline" />
-        <div className="grid grid-cols-3 gap-3 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
           {data.skills.map((skill, idx) => (
             <div key={idx} className="flex items-start gap-2">
               <Award className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
@@ -79,7 +79,7 @@ export function Template18HealthcareClinical({ data, theme }: TemplateProps) {
       {data.languages && data.languages.length > 0 && (
         <section>
           <SectionTitle title="Languages" theme={theme} variant="underline" />
-          <div className="grid grid-cols-3 gap-3 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
             {data.languages.map((lang, idx) => (
               <div key={idx}>
                 <span className="font-semibold text-gray-900">{lang.name}:</span>

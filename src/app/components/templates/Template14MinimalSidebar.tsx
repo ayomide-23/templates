@@ -38,6 +38,38 @@ export function Template14MinimalSidebar({ data, theme }: TemplateProps) {
         <div className="px-6 md:px-12 py-6 md:py-8 bg-gray-50 border-b border-gray-200">
           <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">{data.name}</h1>
           <p className="text-lg md:text-xl text-gray-700">{data.title}</p>
+          <div className="mt-4 flex flex-col gap-2 text-sm text-gray-600 md:hidden">
+            <div className="flex items-center gap-2">
+              <Mail className="w-4 h-4" />
+              <span>{data.email}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4" />
+              <span>{data.phone}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-4 h-4" />
+              <span>{data.location}</span>
+            </div>
+            {data.website && (
+              <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4" />
+                <span>{data.website}</span>
+              </div>
+            )}
+            {data.linkedin && (
+              <div className="flex items-center gap-2">
+                <Linkedin className="w-4 h-4" />
+                <span>{data.linkedin}</span>
+              </div>
+            )}
+            {data.github && (
+              <div className="flex items-center gap-2">
+                <Github className="w-4 h-4" />
+                <span>{data.github}</span>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Content */}
@@ -70,7 +102,7 @@ export function Template14MinimalSidebar({ data, theme }: TemplateProps) {
             {/* Skills */}
             <section>
               <SectionTitle title="Skills" theme={theme} variant="minimal" />
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1">
                 {data.skills.map((skill, idx) => (
                   <div key={idx} className="text-sm text-gray-700">• {skill}</div>
                 ))}

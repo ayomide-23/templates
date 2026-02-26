@@ -22,10 +22,10 @@ export function Template12CreativeLeftBand({ data, theme }: TemplateProps) {
   const initials = data.name.split(' ').map(n => n[0]).join('').slice(0, 2);
 
   return (
-    <div className="flex h-full bg-white overflow-auto">
+    <div className="flex flex-col md:flex-row h-full bg-white overflow-auto">
       {/* Left Color Band */}
       <div 
-        className="w-20 flex flex-col items-center py-12"
+        className="hidden md:flex md:w-20  flex-col items-center py-12"
         style={{ backgroundColor: bandColor }}
       >
         {/* Vertical Name */}
@@ -40,9 +40,9 @@ export function Template12CreativeLeftBand({ data, theme }: TemplateProps) {
       </div>
 
       {/* Main Content */}
-      <div className="flex">
+      <div className="flex flex-col md:flex-row w-full">
         {/* Left Sidebar */}
-        <div className="w-1/3 overflow-auto p-8 bg-gray-50">
+        <div className="w-full md:w-1/3 overflow-auto p-8 bg-gray-50">
           <div className="mb-6">
             <h1 className="text-2xl font-bold text-gray-900 mb-1">{data.name}</h1>
             <p className="text-sm text-gray-700">{data.title}</p>
@@ -81,7 +81,7 @@ export function Template12CreativeLeftBand({ data, theme }: TemplateProps) {
         </div>
 
         {/* Right Main Content */}
-        <div className="w-2/3 p-8 overflow-auto">
+        <div className="w-full md:w-2/3 p-8 overflow-auto">
           {/* Summary */}
           <section className="mb-6">
             <SectionTitle title="About Me" theme={theme} variant="accent-bar" />

@@ -20,7 +20,7 @@ export function Template04ExecutiveMinimal({ data, theme }: TemplateProps) {
       />
 
       {/* Generous spacing */}
-      <div className="my-12 h-px bg-gray-200"></div>
+      {/* <div className="my-12 h-px bg-gray-200"></div> */}
 
       {/* Summary - Brief */}
       <section className="mb-12">
@@ -76,7 +76,7 @@ export function Template04ExecutiveMinimal({ data, theme }: TemplateProps) {
       {/* Key Skills - Minimal List */}
       <section>
         <SectionTitle title="Core Competencies" theme={theme} variant="bold" />
-        <div className="grid grid-cols-3 gap-4 text-gray-700">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-700">
           {data.skills.slice(0, 9).map((skill, idx) => (
             <div key={idx} className="text-sm">• {skill}</div>
           ))}

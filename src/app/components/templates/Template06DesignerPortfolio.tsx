@@ -21,14 +21,14 @@ export function Template06DesignerPortfolio({ data, theme }: TemplateProps) {
     <div className="h-full overflow-auto bg-white">
       {/* Creative Header with Profile Photo */}
       <div className="px-12 pt-12 pb-8 bg-gradient-to-br from-gray-50 to-white">
-        <div className="flex items-start gap-8">
+        <div className="flex flex-col md:flex-row items-start gap-8">
           {/* Profile Photo */}
           <div className="w-32 h-32 rounded-lg bg-gray-300 flex-shrink-0">
             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt={`${data.name} Profile`} className="w-full h-full object-cover rounded-lg" />
           </div>
           
           <div className="flex-1">
-            <h1 className="text-4xl font-bold mb-2" style={{ color: getAccentColor() }}>
+            <h1 className="text-2xl md:text-4xl font-bold mb-2" style={{ color: getAccentColor() }}>
               {data.name}
             </h1>
             <p className="text-xl text-gray-700 mb-4">{data.title}</p>
@@ -68,7 +68,7 @@ export function Template06DesignerPortfolio({ data, theme }: TemplateProps) {
         {data.projects && data.projects.length > 0 && (
           <section className="mb-6">
             <SectionTitle title="Portfolio Projects" theme={theme} variant="accent-bar" />
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {data.projects.map((project, idx) => {
                 // Design/branding related images for brand designer portfolio
                 const projectImages = [
@@ -110,7 +110,7 @@ export function Template06DesignerPortfolio({ data, theme }: TemplateProps) {
         </section>
 
         {/* Bottom Grid */}
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Education */}
           <section>
             <SectionTitle title="Education" theme={theme} variant="accent-bar" />

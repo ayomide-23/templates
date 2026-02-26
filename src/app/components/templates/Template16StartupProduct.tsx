@@ -21,7 +21,7 @@ export function Template16StartupProduct({ data, theme }: TemplateProps) {
     <div className="p-10 h-full overflow-auto text-gray-900 bg-white">
       {/* Bold Header */}
       <div className="mb-6">
-        <h1 className="text-5xl font-extrabold mb-2" style={{ color: getAccentColor() }}>
+        <h1 className="text-3xl md:text-5xl font-extrabold mb-2" style={{ color: getAccentColor() }}>
           {data.name}
         </h1>
         <p className="text-2xl text-gray-700 mb-4">{data.title}</p>
@@ -49,7 +49,7 @@ export function Template16StartupProduct({ data, theme }: TemplateProps) {
           <div className="grid grid-rows gap-4 md:grid-cols-4">
             {data.metrics.map((metric, idx) => (
               <div key={idx} className="text-center">
-                <div className="text-3xl font-bold" style={{ color: getAccentColor() }}>
+                <div className="text-2xl md:text-3xl font-bold" style={{ color: getAccentColor() }}>
                   {metric.value}
                 </div>
                 <div className="text-xs text-gray-600 mt-1">{metric.label}</div>
@@ -98,7 +98,7 @@ export function Template16StartupProduct({ data, theme }: TemplateProps) {
       )}
 
       {/* Bottom Grid */}
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Skills */}
         <section>
           <SectionTitle title="Skills" theme={theme} variant="bold" />

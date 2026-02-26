@@ -102,7 +102,7 @@ export function Template20PersonalBrand({ data, theme }: TemplateProps) {
         {data.projects && data.projects.length > 0 && (
           <section className="mb-8">
             <SectionTitle title="Featured Work" theme={theme} variant="bold" />
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {data.projects.map((project, idx) => (
                 <div key={idx} className="border-2 rounded-lg overflow-hidden" style={{ borderColor: getAccentColor() }}>
                   {/* Project Image Placeholder */}
@@ -133,7 +133,7 @@ export function Template20PersonalBrand({ data, theme }: TemplateProps) {
         {/* Education */}
         <section>
           <SectionTitle title="Education" theme={theme} variant="bold" />
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {data.education.map((edu, idx) => (
               <EducationCard key={idx} education={edu} theme={theme} variant="default" />
             ))}

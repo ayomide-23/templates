@@ -14,13 +14,10 @@ export function Template13ModernThreeColumn({ data, theme }: TemplateProps) {
         <p className="text-xl text-gray-700 mb-3">{data.title}</p>
         <div className="flex flex-wrap gap-4 text-sm text-gray-600">
           <span>{data.email}</span>
-          <span>•</span>
           <span>{data.phone}</span>
-          <span>•</span>
           <span>{data.location}</span>
           {data.website && (
             <>
-              <span>•</span>
               <span>{data.website}</span>
             </>
           )}
@@ -33,7 +30,7 @@ export function Template13ModernThreeColumn({ data, theme }: TemplateProps) {
       </section>
 
       {/* Three Column Grid */}
-      <div className="grid grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         {/* Column 1: Skills */}
         <section>
           <SectionTitle title="Skills" theme={theme} variant="minimal" />
@@ -86,7 +83,7 @@ export function Template13ModernThreeColumn({ data, theme }: TemplateProps) {
       {data.projects && data.projects.length > 0 && (
         <section>
           <SectionTitle title="Projects" theme={theme} variant="underline" />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {data.projects.map((project, idx) => (
               <ProjectCard key={idx} project={project} theme={theme} variant="compact" />
             ))}

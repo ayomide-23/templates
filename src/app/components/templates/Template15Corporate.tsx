@@ -6,7 +6,7 @@ import { EducationCard } from '../resume/EducationCard';
 export function Template15Corporate({ data, theme }: TemplateProps) {
   // Conservative, traditional design
   return (
-    <div className="p-12 h-full overflow-auto text-gray-900 bg-white" style={{ fontFamily: 'Georgia, serif' }}>
+    <div className="p-4 md:p-12 h-full overflow-auto text-gray-900 bg-white" style={{ fontFamily: 'Georgia, serif' }}>
       {/* Traditional Header */}
       <div className="text-center mb-8 pb-6 border-b-2 border-gray-800">
         <h1 className="text-3xl font-bold mb-2 text-gray-900" style={{ letterSpacing: '0.05em' }}>
@@ -81,7 +81,7 @@ export function Template15Corporate({ data, theme }: TemplateProps) {
         <h2 className="text-base font-bold mb-2 text-gray-900 uppercase tracking-wide border-b border-gray-400 pb-1">
           Core Competencies
         </h2>
-        <div className="grid grid-cols-3 gap-x-4 gap-y-1 text-sm text-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1 text-sm text-gray-800">
           {data.skills.map((skill, idx) => (
             <div key={idx}>• {skill}</div>
           ))}
