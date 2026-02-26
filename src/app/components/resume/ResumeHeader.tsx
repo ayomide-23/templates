@@ -75,21 +75,18 @@ export function ResumeHeader({
   if (variant === 'minimal') {
     return (
       <div className="mb-6">
-        <h1 className="text-5xl font-bold mb-1" style={{ color: colors.primary }}>
+        <h1 className="text-2xl lg:text-4xl font-bold mb-1" style={{ color: colors.primary }}>
           {name}
         </h1>
         <p className="text-lg mb-3" style={{ color: colors.text }}>
           {title}
         </p>
-        <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm" style={{ color: colors.text }}>
+        <div className="flex flex-col lg:flex-row gap-x-4 gap-y-1 text-sm" style={{ color: colors.text }}>
           <span>{email}</span>
-          <span>•</span>
           <span>{phone}</span>
-          <span>•</span>
           <span>{location}</span>
           {website && (
             <>
-              <span>•</span>
               <span>{website}</span>
             </>
           )}

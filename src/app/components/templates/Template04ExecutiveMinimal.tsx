@@ -6,7 +6,7 @@ import { EducationCard } from '../resume/EducationCard';
 
 export function Template04ExecutiveMinimal({ data, theme }: TemplateProps) {
   return (
-    <div className="p-16 h-full overflow-auto text-gray-900 bg-white">
+    <div className="p-10 h-full overflow-auto text-gray-900 bg-white">
       {/* Large Name Header */}
       <ResumeHeader
         name={data.name}

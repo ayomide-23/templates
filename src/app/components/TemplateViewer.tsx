@@ -204,9 +204,9 @@ export function TemplateViewer({
       </header> */}
 
       {/* Template Preview */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-full mx-auto px-2 sm:px-4 lg:px-8 py-6 sm:py-12">
         <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
-          <div className="bg-gray-100 p-8">
+          <div className="bg-gray-100 p-3 sm:p-8">
             <div
               ref={resumeRef}
               className="mx-auto"

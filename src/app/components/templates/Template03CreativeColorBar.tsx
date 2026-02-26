@@ -22,10 +22,10 @@ export function Template03CreativeColorBar({ data, theme }: TemplateProps) {
   return (
     <div className="h-full bg-white flex flex-col overflow-y-auto ">
       {/* Bold Color Bar Header */}
-      <div className="flex-shrink-0 h-32" style={{ backgroundColor: accentColor }}>
-        <div className="px-6 lg:px-12 pt-12">
+      <div className="flex-shrink-0" style={{ backgroundColor: accentColor }}>
+        <div className="px-6 pb-6 lg:px-12 pt-12">
           <h1 className="text-2xl lg:text-4xl font-bold text-white mb-1">{data.name}</h1>
-          <p className="text-lg lg:text-xl text-white text-opacity-90">{data.title}</p>
+          <p className="text-sm lg:text-xl text-white text-opacity-90">{data.title}</p>
         </div>
       </div>
 
