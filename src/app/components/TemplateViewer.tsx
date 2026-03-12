@@ -1,8 +1,8 @@
 import { ArrowLeft, Download, Palette } from 'lucide-react';
-import { TemplateMetadata, ThemeVariant } from '@/types/resume';
+import { ResumeData, TemplateMetadata, ThemeVariant } from '@/types/resume';
 import { getSampleDataByTemplate } from '@/data/sampleData';
 import { getTemplateComponent } from '@/app/components/templates';
-import { useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import domtoimage from 'dom-to-image-more';
 
 interface TemplateViewerProps {
@@ -21,9 +21,118 @@ export function TemplateViewer({
   onBack
 }: TemplateViewerProps) {
   const TemplateComponent = getTemplateComponent(templateId);
-  const resumeData = getSampleDataByTemplate(templateId);
+  const sampleData = getSampleDataByTemplate(templateId);
+  const [resumeData, setResumeData] = useState<ResumeData>(sampleData);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const resumeRef = useRef<HTMLDivElement>(null);
   const [isExporting, setIsExporting] = useState(false);
+
+  const query = useMemo(() => new URLSearchParams(window.location.search), []);
+  const resumeId = query.get('resumeId');
+  const resumeApi = query.get('resumeApi') || 'http://localhost:5001';
+
+  const normalizeText = (value: unknown) => (value ? String(value).trim() : '');
+  const splitToList = (value: unknown) => {
+    const text = normalizeText(value);
+    if (!text) return [];
+    return text
+      .split(/\n|•|- /)
+      .map(item => item.trim())
+      .filter(Boolean);
+  };
+  const splitComma = (value: unknown) => {
+    const text = normalizeText(value);
+    if (!text) return [];
+    return text
+      .split(',')
+      .map(item => item.trim())
+      .filter(Boolean);
+  };
+
+  const mapResumeData = (payload: any): ResumeData => {
+    const info = payload?.personalInfo || {};
+    const experience = Array.isArray(payload?.experience) ? payload.experience : [];
+    const education = Array.isArray(payload?.education) ? payload.education : [];
+    const skills = Array.isArray(payload?.skills) ? payload.skills : [];
+    const projects = Array.isArray(payload?.projects) ? payload.projects : [];
+    const certifications = Array.isArray(payload?.certifications) ? payload.certifications : [];
+    const languages = Array.isArray(payload?.languages) ? payload.languages : [];
+
+    const title =
+      normalizeText(payload?.title) ||
+      normalizeText(experience[0]?.jobTitle) ||
+      normalizeText(experience[0]?.jobtitle) ||
+      '';
+
+    return {
+      name: normalizeText(info.fullName) || 'Your Name',
+      title,
+      email: normalizeText(info.email),
+      phone: normalizeText(info.phone),
+      location: normalizeText(info.location),
+      website: normalizeText(info.portfolio),
+      linkedin: normalizeText(info.linkedin),
+      portfolio: normalizeText(info.portfolio),
+      summary: normalizeText(payload?.summary),
+      workExperience: experience.map((exp: any) => ({
+        company: normalizeText(exp.company),
+        jobTitle: normalizeText(exp.jobTitle),
+        location: normalizeText(exp.location),
+        startDate: normalizeText(exp.startDate),
+        endDate: normalizeText(exp.isCurrent ? 'Present' : exp.endDate),
+        description: splitToList(exp.description)
+      })),
+      education: education.map((edu: any) => ({
+        institution: normalizeText(edu.schoolName),
+        degree: normalizeText(edu.degree),
+        field: normalizeText(edu.fieldOfStudy),
+        location: normalizeText(edu.location),
+        graduationDate: normalizeText(edu.endDate || edu.startDate),
+      })),
+      skills: skills
+        .map((skill: any) => normalizeText(skill.skillName || skill.skillname))
+        .filter(Boolean),
+      projects: projects.map((project: any) => ({
+        name: normalizeText(project.Title),
+        description: normalizeText(project.Description),
+        technologies: splitComma(project.Technologies),
+        link: normalizeText(project.Link)
+      })),
+      certificates: certifications.map((cert: any) => ({
+        name: normalizeText(cert.Name),
+        issuer: normalizeText(cert.Organisation),
+        date: normalizeText(cert.Date),
+      })),
+      languages: languages.map((lang: any) => ({
+        name: normalizeText(lang.Language),
+        proficiency: normalizeText(lang.Proficiency),
+      }))
+    };
+  };
+
+  useEffect(() => {
+    if (!resumeId) {
+      setResumeData(sampleData);
+      return;
+    }
+
+    const fetchResume = async () => {
+      try {
+        setFetchError(null);
+        const response = await fetch(`${resumeApi}/api/resumes/${resumeId}`);
+        if (!response.ok) throw new Error('Resume not found');
+        const result = await response.json();
+        const mapped = mapResumeData(result.data || result);
+        setResumeData(mapped);
+      } catch (err: any) {
+        console.error('Failed to fetch resume', err);
+        setFetchError(err?.message || 'Failed to load resume');
+        setResumeData(sampleData);
+      }
+    };
+
+    fetchResume();
+  }, [resumeId, resumeApi, sampleData]);
   // Image Export using dom-to-image-more
   const handleExport = async (size: 'print' | 'web') => {
     if (!resumeRef.current) return;
@@ -205,6 +314,9 @@ export function TemplateViewer({
 
       {/* Template Preview */}
       <main className="max-w-full mx-auto px-2 sm:px-4 lg:px-8 py-6 sm:py-12">
+        {fetchError && (
+          <div className="mb-4 text-sm text-red-600">{fetchError}</div>
+        )}
         <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
           <div className="bg-gray-100 p-3 sm:p-8">
             <div
