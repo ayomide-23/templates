@@ -3,6 +3,7 @@ import { ResumeData, TemplateMetadata, ThemeVariant } from '@/types/resume';
 import { getSampleDataByTemplate } from '@/data/sampleData';
 import { getTemplateComponent } from '@/app/components/templates';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import domtoimage from 'dom-to-image-more';
 
 interface TemplateViewerProps {
@@ -24,10 +25,14 @@ export function TemplateViewer({
   const sampleData = getSampleDataByTemplate(templateId);
   const [resumeData, setResumeData] = useState<ResumeData>(sampleData);
   const [fetchError, setFetchError] = useState<string | null>(null);
+  const [usingSample, setUsingSample] = useState(true);
   const resumeRef = useRef<HTMLDivElement>(null);
   const [isExporting, setIsExporting] = useState(false);
-
-  const query = useMemo(() => new URLSearchParams(window.location.search), []);
+  const location = useLocation();
+  const query = useMemo(
+    () => new URLSearchParams(location.search),
+    [location.search]
+  );
   const resumeId = query.get('resumeId');
   const resumeApi = query.get('resumeApi') || 'http://localhost:5001';
 
@@ -113,21 +118,35 @@ export function TemplateViewer({
   useEffect(() => {
     if (!resumeId) {
       setResumeData(sampleData);
+      setUsingSample(true);
       return;
     }
 
     const fetchResume = async () => {
       try {
         setFetchError(null);
-        const response = await fetch(`${resumeApi}/api/resumes/${resumeId}`);
-        if (!response.ok) throw new Error('Resume not found');
+        const response = await fetch(`${resumeApi}/api/resumes/${resumeId}`, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true'
+          }
+        });
+        const contentType = response.headers.get('content-type') || '';
+        if (!response.ok) {
+          throw new Error(`Resume not found (${response.status})`);
+        }
+        if (!contentType.includes('application/json')) {
+          const text = await response.text();
+          throw new Error(`Expected JSON but got: ${text.slice(0, 60)}...`);
+        }
         const result = await response.json();
         const mapped = mapResumeData(result.data || result);
         setResumeData(mapped);
+        setUsingSample(false);
       } catch (err: any) {
         console.error('Failed to fetch resume', err);
         setFetchError(err?.message || 'Failed to load resume');
         setResumeData(sampleData);
+        setUsingSample(true);
       }
     };
 
@@ -314,9 +333,16 @@ export function TemplateViewer({
 
       {/* Template Preview */}
       <main className="max-w-full mx-auto px-2 sm:px-4 lg:px-8 py-6 sm:py-12">
-        {fetchError && (
-          <div className="mb-4 text-sm text-red-600">{fetchError}</div>
-        )}
+        <div className="mb-4 text-xs text-gray-600">
+          {resumeId ? (
+            <>
+              Data source: {usingSample ? 'Sample (fallback)' : 'Live resume'}
+              {fetchError && <span className="text-red-600"> • {fetchError}</span>}
+            </>
+          ) : (
+            'Data source: Sample (no resumeId provided)'
+          )}
+        </div>
         <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
           <div className="bg-gray-100 p-3 sm:p-8">
             <div
